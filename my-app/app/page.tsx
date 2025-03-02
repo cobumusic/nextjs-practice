@@ -1,6 +1,7 @@
 //reminder: run 'npm run dev' in terminal to run app!
 
 import Image from "next/image";
+//import Image is for optimizing images
 
 export default function Home() {
   return (
@@ -100,3 +101,105 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+/*
+
+let name: string = "jacob";
+let num: number = 0;
+let name2 = "jacob";
+let v: any = true;
+v = "string";
+const car: {type:string, model?:string, year:number} = {
+type: "Toyota",
+year: 2000
+}
+
+//enum:
+enum CardinalDirections {
+  North = "North",
+  East = "East",
+  South = "South",
+  West = "West"
+}
+CardinalDirections.North;
+
+
+//alias:
+type CarYear = number
+type CarType = string
+type CarModel = string
+type Car = {
+  year: CarYear,
+  type: CarType,
+  model: CarModel
+}
+const carYear: CarYear = 2001
+const carType: CarType = "Toyota"
+const carModel: CarModel = "Corolla"
+const car: Car = {
+  year: carYear,
+  type: carType,
+  model: carModel
+};
+
+//interface:
+interface Rectangle {
+  height: number, 
+  width: number
+}
+interface ColoredRectangle extends Rectangle {
+  color: string
+}
+const coloredRectangle: ColoredRectangle = {
+  height: 20,
+  width: 10,
+  color: red
+};
+
+//if using an interface from another file:
+//in interface file called sampleInterace.tsx:
+export interface sampleInterface {
+  key: string
+}
+//in file to use interface in:
+import {sampleInterface} from './sampleInterface';
+let sampleVar: sampleInterface;
+
+//specify that a number is to be returned
+function getTime(): number {
+  return 0;
+}
+
+//specify that nothing is to be returned
+function getTime(): void {
+  console.log("the time is 10pm!");
+}
+
+//specify the parameters (also, if no return type is defined, the default return type is any)
+function multiply(a: number, b: number, c?: number): number{
+  return a*b;
+}
+
+//casting
+let x = "hello";
+console.log(((x as unknown) as number).length);
+console.log((x as unknown as number).length);
+
+//generics (good for creating classes/functions/aliases that don't need to explicitly define their types)
+//in createPair, S and T are placeholders for the type(s) to return, while v1 and v2 are the temp param/var names
+function createPair<S, T>(v1: S, v2: T): [S, T] {
+  return [v1, v2]
+}
+console.log(createPair<string, number>("hello", 5));
+
+//keyof
+interface Person {
+  name: string;
+  age: number;
+}
+function printPersonProperty(person: Person, property: keyof Person){
+  console.log("Printing person property ${property}: '${person[property]}'");
+}
+*/
