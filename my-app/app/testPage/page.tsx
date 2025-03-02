@@ -1,6 +1,8 @@
 //reminder: run 'npm run dev' in terminal to run app!
 
 import Image from "next/image";
+import { ReactNode } from "react";
+// import { Header } from "./testComp";
 
 export default function Home() {
   return (
@@ -95,9 +97,32 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Go to nextjs.org →
+          Go to nextjs.org → <Section/>
         </a>
       </footer>
     </div>
+  );
+}
+
+
+
+// function Header2({ children }){
+//   return <header>{children}</header>
+// }
+
+export function Header(){
+  let name = "!";
+  return <h1>{name}</h1>;
+}
+
+type PropsWithChildren<P> = P & {children?:ReactNode};
+
+function Section(){
+  return (
+    <>
+      <section>
+        <Header/>
+      </section>
+    </>
   );
 }
