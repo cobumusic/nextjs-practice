@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import { useState } from 'react';
+import LikeButton2 from "../like-button-2";
 
 interface CustomProps {
     clickFunction: any;
@@ -16,6 +17,7 @@ interface TestCompProps {
 
 export default function Home() {
     const [count, setCount] = useState(0);
+    const names: string[] = ["Item 1: ", "Item 2: "];
 
     const handleClick = () => {
         setCount(count + 1);
@@ -33,13 +35,39 @@ export default function Home() {
             {/* <IncrementButton thisCount={count} onInteract={handleClick} /> */}
             {/* <IncrementButton customProps={customProps} /> */}
             {/* <TestComp title="Item 1:"/> */}
-            <TestComp string1="Item " string2="1:" />
+            <LikeButton />
+            <LikeButton2 />
+            <TestComp string1="Item " string2="0:" />
+            <ul>
+                {names.map((name) => (
+                    <li key={name}>{name}</li>
+                ))}
+            </ul>
         </main>
 
         </div>
     );
 }
 
+function LikeButton(){
+    const [likes, setLikes] = useState(0);
+
+    function handleClick(){
+        console.log('increment like count');
+        setLikes(likes + 1);
+    }
+
+    return(
+        <>
+            <button onClick={handleClick}>Likes ({likes})</button>
+        </>
+    );
+}
+
+/*
+//note for future self: if the passed-in type for props is an interface, you MUST use the same variable name in the interface, in passing down to a prop,
+and in receiving props (i.e. in the function CompName(...){} constructor)
+*/
 //function TestComp({title}:{title:string}){
 function TestComp({string1, string2}:TestCompProps){ 
         return (
