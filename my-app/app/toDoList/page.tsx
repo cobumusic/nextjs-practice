@@ -6,13 +6,15 @@ import { useState } from 'react';
 
 /*
 first:
+clean it up, modify styles, add comments, add interfaces wherever possible
 
 then:
-make ToDoList and ToDoListItem comps
-make input field add to ToDoList
+import over the tutorial code
 
 later:
-populate based on JSON
+add markers for Done
+add date info
+add filter options
 
 */
 
