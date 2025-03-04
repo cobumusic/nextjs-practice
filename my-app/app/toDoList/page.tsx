@@ -3,17 +3,9 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import { useState } from 'react';
-import LikeButton2 from "../like-button-2";
-
-//TODO make type interface/alias for a ToDoItem
-//TODO comps to make: ToDoList, ToDoListItem
 
 /*
 first:
-make input field
-make add button
-make ToDoItem alias
-make sample JSON to pull from
 
 then:
 make ToDoList and ToDoListItem comps
@@ -24,12 +16,74 @@ populate based on JSON
 
 */
 
+/*
+interface TodoItemType {
+    description: string;
+    date: string;
+    isCompleted: boolean;
+    toggleToDo?: () => void;
+}
+
+let ITEMS: TodoItemType[] = [
+    {description: "Clean balcony", date: "today", isCompleted: false}
+];
+
+const TodoListItem: React.FC<TodoItemType> = (props) => {
+    return (
+        <>
+            <span>
+                description = {props.description}, date = {props.date}, isCompleted = {props.isCompleted}
+            </span>
+        </>
+    );
+};
+*/
+
 export default function Home() {
+
+    /*
+    let [todoItems, setTodoItems] = useState<typeof TodoListItem[]>([]);
+    //let [todoItems, setTodoItems] = useState([]);
+
+    // function addTodoItem(desc: string){
+    //     const newTodo = {
+    //         description: desc,
+    //         date: Date.now(),
+    //         isCompleted: false
+    //     }
+    //     setTodoItems([...todoItems, newTodo]);
+    // }
+
+    //load todo items
+    const rows = [];
+    ITEMS.forEach(item => {
+        const propsForTodoItem = {
+            description: item.description,
+            date: item.date,
+            isCompleted: item.isCompleted
+        }
+        //setTodoItems([...todoItems, <TodoListItem description={item.description} date={"hi"} isCompleted={false}/>]);
+    });
+    */
 
     return (
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-            <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+            <main className="flex flex-col gap-8 row-start-2 items-center">
                 <h1 className="text-4xl font-semibold">To-Do List</h1>
+                <div className="flex flex-row">
+                    <input 
+                        type="text"
+                        placeholder="Enter an item..."
+                        className="border border-black p-1"
+                        >
+                    </input>
+                    <button
+                        className="ml-4 text-xl bg-blue-200 p-2 rounded-md hover:bg-blue-300 active:bg-blue-500 transition-all"
+                        >
+                        Add
+                    </button>
+                </div>
+                {}
             </main>
         </div>
     );
