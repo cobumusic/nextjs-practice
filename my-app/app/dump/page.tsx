@@ -42,6 +42,8 @@ export default function Home() {
                     <li key={name}>{name}</li>
                 ))}
             </ul>
+            <PageSample/>
+            {/* <Sample/> */}
             
         </main>
 
@@ -127,5 +129,36 @@ function TestComp({string1, string2}:TestCompProps){
 //             </button>
 //             <p></p>
 //         </>
+//     );
+// }
+
+const PageSample = ({ dataFromServer}: any) => {
+    return (
+        <div>
+            {dataFromServer}
+        </div>
+    );
+};
+
+async function getStaticProps(){
+    const dataFromServer = 'Server-rendered data for this page';
+
+    return {
+        props: {
+            dataFromServer
+        }
+    };
+}
+
+
+// async function Sample(){
+//     const data = await fetch('https://api.vercel.app/blog');
+//     const posts = await data.json();
+//     return (
+//         <ul>
+//             {posts.map((post: any) => (
+//                 <li key={post.id}>{post.title}</li>
+//             ))}
+//         </ul>
 //     );
 // }
